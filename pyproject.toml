@@ -4,6 +4,7 @@ line-length = 79
 
 [tool.ruff.lint]
 select = [
+    "B",  # bugbear
     "E",
     "F",
     "I",
