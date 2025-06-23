@@ -13,6 +13,14 @@ RewriteRule . - [R=403,L]
 
    ErrorLog /var/log/httpd/mtarchive/error_log
 
+  alias /era5land /mnt/era5land
+  <Directory /mnt/era5land>
+    Options Indexes FollowSymLinks
+    IndexOptions NameWidth=*
+    AllowOverride None
+    Require all granted
+  </Directory>
+
   <Directory /isu/mtarchive/data>
     Options Indexes FollowSymLinks
     IndexOptions NameWidth=*
