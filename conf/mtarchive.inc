@@ -24,10 +24,10 @@ RewriteRule . - [R=403,L]
   <Directory /isu/mtarchive/data>
     Options Indexes FollowSymLinks
     IndexOptions NameWidth=*
-    AllowOverride None
+    AllowOverride All
     Require all granted
 
-    RewriteRule ^(.*).zip$ /cgi-bin/cybox.py?fn=$1.zip [L]
+    RewriteRule ^([12].*).zip$ /cgi-bin/cybox.py?fn=$1.zip [L]
 
   </Directory>
 
@@ -60,3 +60,8 @@ Alias /cgi-bin/ "/opt/mtarchive/cgi-bin/"
     AddHandler cgi-script .py
     Options +ExecCGI
 </Directory>
+
+<Location /NSSFC>
+  Options Indexes FollowSymLinks
+  IndexOptions NameWidth=* FancyIndexing DescriptionWidth=*
+</Location>
