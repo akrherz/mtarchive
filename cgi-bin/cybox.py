@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 """Do the magic redirection to the Cybox URL"""
 
-# stdlib
-import cgi
 import os
 import re
 import sys
+from urllib.parse import parse_qs
 
 FILENAME_RE = re.compile(r"^\d{4}/\d\d/\d\d/.*\.zip$")
 
 
 def main():
     """Go Main Go."""
-    form = cgi.FieldStorage()
-    fn = form.getfirst("fn", "")
+    # Parse query string from environment
+    query_string = os.environ.get("QUERY_STRING", "")
+    params = parse_qs(query_string)
+    fn = params.get("fn", [""])[0]
     if FILENAME_RE.match(fn) is None:
         print("Content-type: text/plain\n")
         print("API Failure: Invalid filename")
