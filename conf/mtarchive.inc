@@ -1,6 +1,8 @@
    ServerAdmin akrherz@iastate.edu
    DocumentRoot /isu/mtarchive/data
 
+   Header set Access-Control-Allow-Origin "*"
+
 RewriteEngine On
 RewriteCond %{HTTP_USER_AGENT} PetalBot [NC]
 RewriteRule . - [R=403,L]
@@ -31,7 +33,7 @@ RewriteRule . - [R=403,L]
 
   </Directory>
 
-  <Directory /mnt/mtarchive8/data>
+  <Directory /mnt/>
     Options Indexes FollowSymLinks
     IndexOptions NameWidth=*
     AllowOverride None
