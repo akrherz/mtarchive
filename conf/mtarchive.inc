@@ -33,6 +33,12 @@ RewriteRule . - [R=403,L]
 
   </Directory>
 
+  <LocationMatch /bufkit/>
+    # Deal with naughty bots that insist on constantly doing directory listings
+    # So we have a cron job that manually generates the index.html to appease
+    Options -Indexes
+  </LocationMatch>
+
   <Directory /mnt/>
     Options Indexes FollowSymLinks
     IndexOptions NameWidth=*
