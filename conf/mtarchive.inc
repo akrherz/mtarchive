@@ -29,8 +29,6 @@ RewriteRule . - [R=403,L]
     AllowOverride All
     Require all granted
 
-    RewriteRule ^([12].*).zip$ /cgi-bin/cybox.py?fn=$1.zip [L]
-
   </Directory>
 
   <LocationMatch /bufkit/>
@@ -45,8 +43,6 @@ RewriteRule . - [R=403,L]
     AllowOverride None
     Require all granted
 
-    RewriteRule ^(.*).zip$ /cgi-bin/cybox.py?fn=$1.zip [L]
-
   </Directory>
 
   <LocationMatch /nldn/>
@@ -59,15 +55,6 @@ RewriteRule . - [R=403,L]
   ProxyPreserveHost On
   ProxyPass /thredds http://localhost:8080/thredds
   ProxyPassReverse /thredds http://localhost:8080/thredds
-
-Alias /cgi-bin/ "/opt/mtarchive/cgi-bin/"
-<Directory "/opt/mtarchive/cgi-bin">
-    AllowOverride All
-    Options FollowSymLinks
-    Require all granted
-    AddHandler cgi-script .py
-    Options +ExecCGI
-</Directory>
 
 <Location /NSSFC>
   Options Indexes FollowSymLinks
