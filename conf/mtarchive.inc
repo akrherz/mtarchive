@@ -1,5 +1,5 @@
    ServerAdmin akrherz@iastate.edu
-   DocumentRoot /isu/mtarchive/data
+   DocumentRoot /mnt/mtarchive2/data
 
    Header set Access-Control-Allow-Origin "*"
 
