@@ -1,3 +1,3 @@
 # mtarchive
 
-mtarchive.geol.iastate.edu website
+Code somewhat used on this [website](https://mtarchive.geol.iastate.edu).
