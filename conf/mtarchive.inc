@@ -7,11 +7,7 @@ RewriteEngine On
 RewriteCond %{HTTP_USER_AGENT} PetalBot [NC]
 RewriteRule . - [R=403,L]
 
-  LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-  LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" proxy
-  SetEnvIf X-Forwarded-For "^.*\..*\..*\..*" forwarded
-  CustomLog "/var/log/httpd/mtarchive/access_log" combined env=!forwarded
-  CustomLog "/var/log/httpd/mtarchive/access_log" proxy env=forwarded
+  CustomLog "/var/log/httpd/mtarchive/access_log" combined
 
    ErrorLog /var/log/httpd/mtarchive/error_log
 
